@@ -8,7 +8,7 @@ N = 1000
 # Parámetro de llegada (clientes/segundos)
 lam = 2/60
 
-# Parámetro de servicio (servicios/segundos)
+# Parámetro de servicio para el cual cumplira que no este vacio mas del 10 porciento del tiempo (servicios/segundos)
 nu = 2.222/60
 
 # Distribución de los tiempos de llegada entre cada cliente
@@ -50,7 +50,7 @@ for c in range(N):
     j = t_atencion[c] + t_servicio[c]
     t[j] -= 1
 
-# Umbral de P o más personas en sistema (hay P - 1 en fila)
+# Umbral de P o más personas en sistema debido a que el requisito es que No esté vacio mas del 10 porciento del tiempo por eso se eligio P como 1.
 P = 1
 
 # Instantes (segundos) de tiempo con P o más solicitudes en sistema
@@ -72,7 +72,7 @@ for i, c in enumerate(t):
 # Fracción de tiempo con P o más solicitudes en sistema
 fraccion = frecuencia / len(t)
 
-# Resultados
+# En resultados se debe modelar para que no este vacio el 10 porciento del tiempo
 print('Parámetro lambda =', str(lam*60))
 print('Parámetro nu =', str(nu*60))
 print('Tiempo con más de {} solicitudes en fila:'.format(P-2))
